@@ -15,6 +15,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/login','AuthController@login')->name('login');
+Route::post('/postlogin','AuthController@postlogin');
+Route::get('/logout','AuthController@logout');
+
+Route::group(['middleware' => ['auth','CheckRole:admin']],function(){
+	Route::get('/siswa','SiswaController@index');
+	Route::post('/siswa/create','SiswaController@create');
+	Route::get('/siswa/{id}/edit','SiswaController@edit');
+	Route::get('/siswa/{id}/update','SiswaController@update');
+	Route::get('/siswa/{id}/delete','SiswaController@delete');
+	Route::get('/siswa/{id}/profile','SiswaController@profile');
+
+	Route::get('/guru','GuruController@index');
+	Route::post('/guru/create','GuruController@create');
+	Route::get('/guru/{id}/edit','GuruController@edit');
+	Route::get('/guru/{id}/update','GuruController@update');
+	Route::get('/guru/{id}/delete','GuruController@delete');
+	Route::get('/guru/{id}/profile','GuruController@profile');
+});
+
+
+Route::group(['middleware' => ['auth','CheckRole:admin,siswa,guru']],function(){
+	Route::get('/dashboard','DashboardController@index');
+
+});
+
+
+
+
+
 Route::get('/home', function () {
     return view('home');
 });
@@ -51,6 +82,9 @@ Route::get('/RPL', function (){
 Route::get('/RPL_X_1', function (){
 return view('RPL_X_1');
 });
+
+//Route::get('/RPL/RPL_X_1', 'HomeController@rombel');
+
 Route::get('/RPL_X_2', function (){
 return view('RPL_X_2');
 });
@@ -214,7 +248,7 @@ Route::get('/BDP', function (){
 
 //Rombel BDP X
 Route::get('/BDP_X_1', function (){
-	return view('BDP_X_1');
+	return view('/BDP_X_1');
 });
 Route::get('/BDP_X_2', function (){
 	return view('BDP_X_2');
@@ -318,3 +352,11 @@ Route::get('/KehadiranSiswa', function (){
 Route::get('/XAbsensi', function (){
 	return view('XAbsensi');
 });
+
+
+Route::resource('/siswa','SiswaController');
+Route::resource('/guru','GuruController');
+
+Route::get('/search','SiswaController@search')->name('siswa.search');
+
+

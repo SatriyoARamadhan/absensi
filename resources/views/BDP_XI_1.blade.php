@@ -1,4 +1,4 @@
-@extends('../layouts.rombel')
+@extends('layouts.layout')
 
 @section('content')
 
@@ -9,7 +9,7 @@
               <div>
                 <div >
                   <div class="panel">
-                    <div class="panel-heading"><h3>Data BDP X-1</h3></div>
+                    <div class="panel-heading"><h3>Data RPL X-1</h3></div>
                     
                     <div class="panel-body">
                       <div class="responsive-table">

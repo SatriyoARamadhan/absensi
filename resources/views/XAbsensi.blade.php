@@ -52,7 +52,49 @@
     <td>30</td>
     <td>31</td>
   </tr>
+  
+  <tr>
+    <td>1</td>
+    <td>11706354</td>
+    <td>Satriyo Agung Ramadhan</td>
+    <td>RPL XII-3</td>
+    <td>Cicurug 6</td>
+    <td>V</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+
 </table>
 
 
 @endsection
+                  

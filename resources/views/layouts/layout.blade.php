@@ -10,17 +10,17 @@
     <title>Absensi</title>
  
     <!-- start: Css -->
-    <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}">
 
       <!-- plugins -->
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/font-awesome.min.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/simple-line-icons.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/animate.min.css"/>
-      <link rel="stylesheet" type="text/css" href="asset/css/plugins/fullcalendar.min.css"/>
-	<link href="asset/css/style.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/font-awesome.min.css')}}"/>
+      <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/simple-line-icons.css')}}"/>
+      <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/animate.min.css')}}"/>
+      <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/fullcalendar.min.css')}}"/>
+	<link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
 	<!-- end: Css -->
 
-	<link rel="shortcut icon" href="asset/img/logomi.png">
+	<link rel="shortcut icon" href="{{asset('asset/img/logomi.png')}}">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -185,6 +185,8 @@
                         <span></span>
                       </a>
                     </li>
+                  
+                  @if(auth()->user()->role != 'siswa')
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
                         <span class="fa-diamond fa"></span> Absensi
@@ -196,16 +198,24 @@
                         <li><a href="">XII</a></li>
                       </ul>
                     </li>
+                  @endif
+
+                  @if(auth()->user()->role == 'admin')
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
                         <span class="fa-area-chart fa"></span> Tambah Data
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="{{ url('/TambahSiswa') }}">Siswa</a></li>
+                        <li><a href="{{route('siswa.index')}}">Siswa</a></li>
+                      </ul>
+                      <ul class="nav nav-list tree">
+                        <li><a href="{{route('guru.index')}}">Guru</a></li>
                       </ul>
                     </li>
+                  @endif  
                     
+                  @if(auth()->user()->role != 'guru')  
                     <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> Kehadiran <span class="fa-angle-right fa right-arrow text-right"></span> </a>
                       <ul class="nav nav-list tree">
                         <li><a href="{{ url('/KehadiranSiswa') }}"> Siswa </a></li>
@@ -217,6 +227,7 @@
                       -->
                       </ul>
                     </li>
+                  @endif  
 
 
                     <!--

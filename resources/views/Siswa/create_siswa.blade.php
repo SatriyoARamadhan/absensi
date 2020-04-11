@@ -21,8 +21,10 @@
 								</script>
 
                             <!--  -->
-							<div class="form-group"><label class="col-sm-2 control-label text-right"><b>NIS</b></label>
-                              <div class="col-sm-10"><input type="text" onkeypress="return Angkasaja(event)" maxlength="8" minlength="8" class="form-control"><br></div>
+                            <form action="{{ route('siswa.store') }}" method="post">
+                              @csrf
+              							<div class="form-group"><label class="col-sm-2 control-label text-right"><b>NIS</b></label>
+                              <div class="col-sm-10"><input type="text" onkeypress="return Angkasaja(event)" maxlength="8" minlength="8" class="form-control" name="nis"><br></div>
                             </div>
 
                             <div class="form-group">
@@ -30,17 +32,22 @@
                               <div class="col-sm-10"><input type="text" class="form-control" name="nama"><br></div>
                             </div>
 
+                            <div class="form-group">
+                              <label class="col-sm-2 control-label text-right"><b>Email</b></label>
+                              <div class="col-sm-10"><input type="email" class="form-control" name="email"><br></div>
+                            </div>
+
                             <div class="form-group"><label class="col-sm-2 control-label text-right"><b>JK</b></label>
                               <div class="col-sm-10">
 									
                         				<div class="form-animate-radio">
                           				<label class="radio">
-                            				<input id="radio1" type="radio" name="radios"/>
+                            				<input value="Laki-Laki" type="radio" name="jk"/>
                             				<span class="outer">
                               				<span class="inner"></span></span> Laki-Laki
                             				</label>
                             			<label class="radio">	
-                            				<input id="radio2" type="radio" name="radios"/>
+                            				<input value="Perempuan" type="radio" name="jk"/>
                             				<span class="outer">
                               				<span class="inner"></span></span> Perempuan
                             				</label>
@@ -99,19 +106,23 @@
                             </div>
 
                             <div class="col-md-12" style="text-align: right;">             		
-								
+								<!--
 								<button class="btn-flip btn btn-raised btn-danger">
                                 <div class="flip">
                                   <div class="side">
-                                    <b>Hapus</b>
+                                    <b>Kembali</b>
                                   </div>
                                   <div class="side back">
-                                    Data Akan Di Hapus ?
+                                    Akan Kembali ?
                                   </div>
                                 </div>
                               </button>
+                -->
+
+                              
 								&nbsp&nbsp&nbsp&nbsp
-                              <button class="btn-flip btn btn-raised btn-success ripple-infinite">
+                              
+                              <button class="btn-flip btn btn-raised btn-success ripple-infinite" type="submit">
                                 <div class="flip">
                                   <div class="side">
                                     <b>Simpan</b>
@@ -121,6 +132,7 @@
                                   </div>
                                 </div>
                               </button>
+                              </form>
 
                           </div>
 

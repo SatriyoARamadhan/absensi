@@ -31,5 +31,9 @@ class HomeController extends Controller
         Auth::logout();
         return view('/'); // ini untuk redirect setelah logout
     }
+    
+    // public function rombel(){
+    //     return view('RPL.RPL_X_1');
+    // }
 
 }
